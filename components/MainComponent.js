@@ -95,7 +95,7 @@ const ContactNavigator = createStackNavigator(
 const MainNavigator = createDrawerNavigator(
     {
         Home: { screen: HomeNavigator },
-        HoaDues: { screen: HoaNavigator },
+        HOA: { screen: HoaNavigator },
         Events: { screen: EventsNavigator },
         News: { screen: NewsNavigator },
         Contact: { screen: ContactNavigator }
