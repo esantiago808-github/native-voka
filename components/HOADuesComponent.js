@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
+
 
 class HoaDues extends Component {
 
@@ -10,7 +12,7 @@ class HoaDues extends Component {
     render() {
         return (
             <View>
-                <Text>Home Owners Association</Text>
+                <Text h3>Home Owners Association</Text>
             </View>
         );
     }

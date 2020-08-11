@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
 
 class News extends Component {
 
@@ -10,7 +11,7 @@ class News extends Component {
     render() {
         return (
             <View>
-                <Text>Villages of Kapolei News</Text>
+                <Text h3>Villages of Kapolei News</Text>
             </View>
         );
     }

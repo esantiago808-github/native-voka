@@ -15,19 +15,19 @@ class Contact extends Component {
                 title='Contact Information'
                 image={require('../shared/images/rainbow-voka.jpg')}
                 wrapperStyle={{margin: 20}} >
-                <Text>91-1111 Kamaaha Loop </Text>
-                <Text>Kapolei, HI 96707</Text> 
-                <Text marginBottom={{margin: 10}} >Phone: (808) 674-4444 </Text> 
-                <Text>Email: association@villagesofkapolei.com </Text> 
+                <Text style={{ fontSize: 20 }}>91-1111 Kamaaha Loop </Text>
+                <Text style={{ fontSize: 20 }}>Kapolei, HI 96707</Text> 
+                <Text marginBottom={{margin: 10}} style={{ fontSize: 20 }} >Phone: (808) 674-4444 </Text> 
+                <Text style={{ fontSize: 20 }}>Email: association@villagesofkapolei.com </Text> 
             </Card>
             <Card 
                 title='Office Hours' 
                 image={require('../shared/images/courtyard-voka.jpg')}
-                wrapperStyle={{margin: 20}} >
-                <Text>{`
+                wrapperStyle={{margin: 5}} >
+                <Text style={{ fontSize: 18 }}>{`
                 Monday through Friday
                 8:00 a.m. to 5:00 p.m.
-                Closed Weekends and Holidays
+                Closed Weekends, Holidays
                     `}
                 </Text>
             </Card>

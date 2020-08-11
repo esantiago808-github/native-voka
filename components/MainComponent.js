@@ -4,40 +4,53 @@ import Events from './EventsHomeComponent';
 import HoaDues from './HOADuesComponent';
 import News from './NewsLetterComponent';
 import Contact from './ContactComponent';
-import { View, Platform } from 'react-native';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-native';
+import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { Icon } from 'react-native-elements';
+import SafeAreaView from 'react-native-safe-area-view';
 
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: '#72B4AC'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
-        }
+            },
+            headerLeft: <Icon
+                name='home'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
     }
 );
-
 const HoaNavigator = createStackNavigator(
     {
         HoaDues: { screen: HoaDues }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: '#72B4AC'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
-        }
+            },
+            headerLeft: <Icon
+                name='info-circle'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
     }
 );
 
@@ -46,15 +59,21 @@ const EventsNavigator = createStackNavigator(
         Events: { screen: Events }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: '#72B4AC'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
-        }
+            },
+            headerLeft: <Icon
+                name='calendar'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
     }
 );
 
@@ -63,15 +82,21 @@ const NewsNavigator = createStackNavigator(
         News: { screen: News }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: '#72B4AC'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
-        }
+            },
+            headerLeft: <Icon
+                name='newspaper-o'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
     }
 );
 
@@ -80,28 +105,113 @@ const ContactNavigator = createStackNavigator(
         Contact: { screen: Contact }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             headerStyle: {
                 backgroundColor: '#72B4AC'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
-        }
+            },
+            headerLeft: <Icon
+                name='address-card'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
     }
+);
+
+const CustomDrawerContentComponent = props => (
+    <ScrollView>
+        <SafeAreaView 
+            style={styles.container}
+            forceInset={{top: 'always', horizontal: 'never'}}>
+            <View style={styles.drawerHeader}>
+                <View style={{flex: 1}}>
+                    <Image source={require('../shared/images/voka-icon-25.jpg')} style={styles.drawerImage} />
+                </View>
+                <View style={{flex: 2}}>
+                    <Text style={styles.drawerHeaderText}>Villages of Kapolei</Text>
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
 );
 
 const MainNavigator = createDrawerNavigator(
     {
-        Home: { screen: HomeNavigator },
-        HOA: { screen: HoaNavigator },
-        Events: { screen: EventsNavigator },
-        News: { screen: NewsNavigator },
-        Contact: { screen: ContactNavigator }
+        Home: { 
+            screen: HomeNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='home'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+         },
+        HOA: { 
+            screen: HoaNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='info-circle'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+         },
+        Events: { 
+            screen: EventsNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='calendar'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        News: { 
+            screen: NewsNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='newspaper-o'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        Contact: { 
+            screen: ContactNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='address-card'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        }
     },
     {
-        drawerBackgroundColor: '#72B4AC'
+        drawerBackgroundColor: '#72B4AC',
+        contentComponent: CustomDrawerContentComponent
     }
 );
 
@@ -117,5 +227,35 @@ class Main extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    drawerHeader: {
+        backgroundColor: '#F6D65B',
+        height: 140,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row'
+    },
+    drawerHeaderText: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
+    drawerImage: {
+        margin: 10,
+        height: 60,
+        width: 60
+    },
+    stackIcon: {
+        marginLeft: 10,
+        color: '#fff',
+        fontSize: 24
+    }
+});
+
 
 export default Main;
