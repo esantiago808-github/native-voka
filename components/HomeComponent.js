@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { Card, Text } from 'react-native-elements';
+import { ScrollView, Text, StyleSheet, View } from 'react-native';
+import { Card, Icon, Button } from 'react-native-elements';
+import { createStackNavigator } from 'react-navigation';
+import Events from './EventsHomeComponent';
+import HoaDues from './HOADuesComponent';
+import News from './NewsLetterComponent';
+import Contact from './ContactComponent';
+import Bulletin from './BulletinComponent';
+import Banquet from './BanquetComponent';
+import ProgramsList from './ProgramListComponent';
+import ProgramSch from './ProgramScheduleComponent';
 
 
-function About(props) {
+
+
+
+function About({props}) {
+
         return (
             <ScrollView>
                 <Card
@@ -52,12 +65,130 @@ class Home extends Component {
     }
 
     render() {
+
+        const { navigate } = this.props.navigation;
+
         return (
             <ScrollView>
+                <Card>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Button
+                            icon={{
+                                name: 'calendar',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" Events"
+                            onPress={() => navigate('Events')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+
+                        <Button
+                            icon={{
+                                name: 'info-circle',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" HOA"
+                            onPress={() => navigate('HoaDues')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+
+                        <Button
+                            icon={{
+                                name: 'newspaper-o',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" News"
+                            onPress={() => navigate('News')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+                    </View>
+
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Button
+                            icon={{
+                                name: 'address-card',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" Contact"
+                            onPress={() => navigate('Contact')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+
+                        <Button
+                            icon={{
+                                name: 'newspaper-o',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" Program Sch"
+                            onPress={() => navigate('ProgramSch')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+
+                        <Button
+                            icon={{
+                                name: 'newspaper-o',
+                                type: 'font-awesome',
+                                size: 24,
+                                color: 'white'
+                            }}
+                            title=" Activties"
+                            onPress={() => navigate('ProgramList')}
+                            raised
+                            buttonStyle={{
+                                backgroundColor: '#72B4AC',
+                                margin: 10
+                            }}
+                        />
+
+
+                    </View>
+                    
+
+
+                    
+                </Card>
                 <About />
             </ScrollView>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    leftTitle: {
+        textAlign: 'left', 
+        marginLeft: 12,
+        fontWeight: 'bold'
+    }
+  });
 
 export default Home;

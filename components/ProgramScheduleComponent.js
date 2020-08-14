@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-class ProgramsSch extends Component {
+class ProgramSch extends Component {
 
     render() {
-        return 
+        return (
+            <View>
+                <Text h3>Program Schedule</Text>
+            </View>
+        )
     }
 }
 
-export default ProgramsSch;
+export default ProgramSch;

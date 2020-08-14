@@ -31,6 +31,7 @@ const HomeNavigator = createStackNavigator(
         })
     }
 );
+
 const HoaNavigator = createStackNavigator(
     {
         HoaDues: { screen: HoaDues }
