@@ -11,10 +11,6 @@ import Banquet from './BanquetComponent';
 import ProgramsList from './ProgramListComponent';
 import ProgramSch from './ProgramScheduleComponent';
 
-
-
-
-
 function About({props}) {
 
         return (
@@ -72,110 +68,158 @@ class Home extends Component {
             <ScrollView>
                 <Card>
                     <View style={{flex: 1, flexDirection: 'row'}}>
-                        <Button
-                            icon={{
-                                name: 'calendar',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" Events"
-                            onPress={() => navigate('Events')}
+                    <Icon
                             raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
-                        />
-
-                        <Button
-                            icon={{
-                                name: 'info-circle',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" HOA"
+                            name='info-circle'
+                            type='font-awesome'
+                            color='#72B4AC'
+                            reverse
                             onPress={() => navigate('HoaDues')}
-                            raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
                         />
 
-                        <Button
-                            icon={{
-                                name: 'newspaper-o',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" News"
-                            onPress={() => navigate('News')}
+                        <Icon
                             raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
+                            name='calendar'
+                            type='font-awesome'
+                            color='#3a6e93'
+                            reverse
+                            onPress={() => navigate('Events')}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
                         />
+
+                        <Icon
+                            raised
+                            name='calendar'
+                            type='font-awesome'
+                            color='#e8873a'
+                            reverse
+                            onPress={() => navigate('ProgramSch')} 
+                            containerStyle={{
+                                margin: 25 
+                            }} 
+                        />
+                    </View>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Text 
+                            style={styles.labelText} 
+                            onPress={() => navigate('HoaDues')}> 
+                              HOA
+                        </Text>
+                        <Text 
+                            style={{marginHorizontal: 20}} 
+                            onPress={() => navigate('Events')}> 
+                            Events 
+                        </Text>
+                        <Text onPress={() => navigate('ProgramSch')}>  Program Schedule </Text>
                     </View>
 
                     <View style={{flex: 1, flexDirection: 'row'}}>
-                        <Button
-                            icon={{
-                                name: 'address-card',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" Contact"
+                    <Icon
+                            raised
+                            name='address-card'
+                            type='font-awesome'
+                            color='#f6d65b'
+                            reverse
                             onPress={() => navigate('Contact')}
-                            raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
                         />
 
-                        <Button
-                            icon={{
-                                name: 'newspaper-o',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" Program Sch"
-                            onPress={() => navigate('ProgramSch')}
+                        <Icon
                             raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
+                            name='list-alt'
+                            type='font-awesome'
+                            color='#017f1b'
+                            reverse
+                            onPress={() => navigate('ProgramsList')}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
                         />
 
-                        <Button
-                            icon={{
-                                name: 'newspaper-o',
-                                type: 'font-awesome',
-                                size: 24,
-                                color: 'white'
-                            }}
-                            title=" Activties"
-                            onPress={() => navigate('ProgramList')}
+                        <Icon
                             raised
-                            buttonStyle={{
-                                backgroundColor: '#72B4AC',
-                                margin: 10
-                            }}
+                            name='newspaper-o'
+                            type='font-awesome'
+                            color='#d44b19'
+                            reverse
+                            onPress={() => navigate('News')} 
+                            containerStyle={{
+                                margin: 25 
+                            }} 
                         />
-
-
+                    </View>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Text 
+                            style={styles.labelText} 
+                            onPress={() => navigate('Contact')}> 
+                              Contact
+                        </Text>
+                        <Text 
+                            style={{marginHorizontal: 20}} 
+                            onPress={() => navigate('ProgramsList')}> 
+                            Program List 
+                        </Text>
+                        <Text onPress={() => navigate('News')}>  Newsletter </Text>
                     </View>
                     
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Icon
+                            raised
+                            name='newspaper-o'
+                            type='font-awesome'
+                            color='#e8873a'
+                            reverse
+                            onPress={() => navigate('Bulletin')}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
+                        />
 
+                        <Icon
+                            raised
+                            name='heartbeat'
+                            type='font-awesome'
+                            color='#72B4AC'
+                            reverse
+                            onPress={() => navigate('Contact')}
+                            containerStyle={{
+                                margin: 25 
+                            }} 
+                        />
 
-                    
+                        <Icon
+                            raised
+                            name='heartbeat'
+                            type='font-awesome'
+                            color='#3a6e93'
+                            reverse
+                            onPress={() => navigate('Contact')} 
+                            containerStyle={{
+                                margin: 25 
+                            }} 
+                        />
+                    </View>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Text 
+                            style={styles.labelText} 
+                            onPress={() => navigate('Bulletin')}> 
+                              Bulletin Board
+                        </Text>
+                        <Text 
+                            style={{marginHorizontal: 20}} 
+                            onPress={() => navigate('Contact')}> 
+                            Contact
+                        </Text>
+                        <Text onPress={() => navigate('Contact')}>  Activity </Text>
+                    </View>
+
                 </Card>
                 <About />
             </ScrollView>
@@ -184,10 +228,9 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-    leftTitle: {
-        textAlign: 'left', 
-        marginLeft: 12,
-        fontWeight: 'bold'
+    labelText: {
+        textAlign: 'center', 
+        marginHorizontal: 25,
     }
   });
 

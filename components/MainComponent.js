@@ -8,6 +8,7 @@ import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-nati
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
+import ProgramSch from './ProgramScheduleComponent';
 
 const HomeNavigator = createStackNavigator(
     {
@@ -77,6 +78,30 @@ const EventsNavigator = createStackNavigator(
         })
     }
 );
+
+const ProgramSchNavigator = createStackNavigator(
+    {
+        ProgramSch: { screen: ProgramSch }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#72B4AC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='calendar'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
 
 const NewsNavigator = createStackNavigator(
     {
@@ -234,7 +259,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#F6D65B',
+        backgroundColor: 'white',
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -242,7 +267,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     drawerHeaderText: {
-        color: '#fff',
+        color: 'black',
         fontSize: 24,
         fontWeight: 'bold'
     },
