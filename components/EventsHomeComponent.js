@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView } from 'react-native';
+import { Avatar, Accessory, ListItem, Text, Tile } from 'react-native-elements';
+import Banquet from "./BanquetComponent";
+import ProgramSch from "./ProgramScheduleComponent";
+
 
 class Events extends Component {
 
@@ -10,9 +13,21 @@ class Events extends Component {
 
     render() {
         return (
-            <View>
+            <ScrollView>
                 <Text h3>Program Activities at the Villages of Kapolei</Text>
-            </View>
+                <Tile
+                    title={'Activities Schedule'}
+                    onPress={() => navigate('ProgramSch')}
+                    imageSrc={require('../shared/images/pool.jpg')}
+                    featured
+                />
+                <Tile
+                    title={'Banquet Rental'}
+                    onPress={() => navigate('Banquet')}
+                    imageSrc={require('../shared/images/banquet-setup.jpg')}
+                    featured
+                />
+            </ScrollView>
         );
     }
 }

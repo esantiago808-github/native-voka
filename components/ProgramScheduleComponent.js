@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-
-
+import { createStackNavigator } from "react-navigation";
+ 
 class ProgramSch extends Component {
 
     static navigationOptions = {
-        title: 'HOA'
+        title: 'Activities Schedule'
     }
 
     render() {

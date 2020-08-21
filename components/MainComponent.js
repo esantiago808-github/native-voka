@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Home from './HomeComponent';
-import Events from './EventsHomeComponent';
 import HoaDues from './HOADuesComponent';
 import News from './NewsLetterComponent';
 import Contact from './ContactComponent';
+import Bulletin from "./BulletinComponent";
+import Banquet from "./BanquetComponent";
+import ProgramSch from './ProgramScheduleComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+import { Icon, Avatar } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
-import ProgramSch from './ProgramScheduleComponent';
 
 const HomeNavigator = createStackNavigator(
     {
@@ -56,52 +57,74 @@ const HoaNavigator = createStackNavigator(
     }
 );
 
-const EventsNavigator = createStackNavigator(
-    {
-        Events: { screen: Events }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#72B4AC'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                color: '#fff'
-            },
-            headerLeft: <Icon
-                name='calendar'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
-    }
-);
-
 const ProgramSchNavigator = createStackNavigator(
     {
-        ProgramSch: { screen: ProgramSch }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#72B4AC'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                color: '#fff'
-            },
-            headerLeft: <Icon
-                name='calendar'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
+        ProgramSch: { 
+            screen: ProgramSch,
+            navigationOptions: ({navigation}) => ({
+                headerStyle: {
+                    backgroundColor: '#72B4AC'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
+                headerLeft: <Icon
+                    name='calendar'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
     }
 );
 
+const BulletinNavigator = createStackNavigator(
+    {
+        Bulletin: { 
+            screen: Bulletin,
+            navigationOptions: ({navigation}) => ({
+                headerStyle: {
+                    backgroundColor: '#72B4AC'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
+                headerLeft: <Icon
+                    name='list-alt'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+    }
+);
+
+const BanquetNavigator = createStackNavigator(
+    {
+        Banquet: { 
+            screen: Banquet,
+            navigationOptions: ({navigation}) => ({
+                headerStyle: {
+                    backgroundColor: '#72B4AC'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
+                headerLeft: <Icon
+                    name='cutlery'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+    }
+);
 
 const NewsNavigator = createStackNavigator(
     {
@@ -195,12 +218,25 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
          },
-        Events: { 
-            screen: EventsNavigator,
+        Schedule: { 
+            screen: ProgramSchNavigator,
             navigationOptions: {
                 drawerIcon: ({tintColor}) => (
                     <Icon
                         name='calendar'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        Banquet: { 
+            screen: BanquetNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='cutlery'
                         type='font-awesome'
                         size={24}
                         color={tintColor}
@@ -221,6 +257,20 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         },
+        Bulletin: { 
+            screen: BulletinNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon
+                        name='list-alt'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+
         Contact: { 
             screen: ContactNavigator,
             navigationOptions: {

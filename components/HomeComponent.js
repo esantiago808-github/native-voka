@@ -8,7 +8,6 @@ import News from "./NewsLetterComponent";
 import Contact from "./ContactComponent";
 import Bulletin from "./BulletinComponent";
 import Banquet from "./BanquetComponent";
-import ProgramsList from "./ProgramListComponent";
 import ProgramSch from "./ProgramScheduleComponent";
 
 function About({ props }) {
@@ -84,7 +83,7 @@ class Home extends Component {
               type="font-awesome"
               color="#3a6e93"
               reverse
-              onPress={() => navigate("Events")}
+              onPress={() => navigate('ProgramSch')}
               containerStyle={{
                 marginHorizontal: 25
               }}
@@ -96,7 +95,7 @@ class Home extends Component {
               type="font-awesome"
               color="#e8873a"
               reverse
-              onPress={() => navigate("ProgramSch")}
+              onPress={() => navigate('Banquet')}
               containerStyle={{
                 marginHorizontal: 25
               }}
@@ -108,10 +107,10 @@ class Home extends Component {
             <Text style={{marginHorizontal: 45}} onPress={() => navigate("HoaDues")}>
               HOA
             </Text>
-            <Text style={{marginHorizontal: 0}} onPress={() => navigate("Events")}>
+            <Text style={{marginHorizontal: 0}} onPress={() => navigate("ProgramSch")}>
               Program Schedule
             </Text>
-            <Text style={{marginHorizontal: 10}} onPress={() => navigate("ProgramSch")}>
+            <Text style={{marginHorizontal: 10}} onPress={() => navigate("Banquet")}>
               Banquet Rental
             </Text>
           </View>
@@ -135,7 +134,7 @@ class Home extends Component {
               type="font-awesome"
               color="#d44b19"
               reverse
-              onPress={() => navigate("News")}
+              onPress={() => navigate("Bulletin")}
               containerStyle={{
                 marginHorizontal: 25
               }}
@@ -157,7 +156,7 @@ class Home extends Component {
             <Text style={{marginHorizontal: 40}} onPress={() => navigate("News")}>
               News
             </Text>
-            <Text style={{ marginHorizontal: 15 }} onPress={() => navigate("News")}>
+            <Text style={{ marginHorizontal: 15 }} onPress={() => navigate("Bulletin")}>
               Bulletin Board
             </Text>
             <Text style={{ marginHorizontal: 30 }} onPress={() => navigate("Contact")}> 
