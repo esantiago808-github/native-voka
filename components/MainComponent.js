@@ -8,7 +8,7 @@ import Banquet from "./BanquetComponent";
 import ProgramSch from './ProgramScheduleComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
-import { Icon, Avatar } from 'react-native-elements';
+import { Icon, Avatar, withTheme } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
 
 const HomeNavigator = createStackNavigator(
