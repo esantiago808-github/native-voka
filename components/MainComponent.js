@@ -5,6 +5,8 @@ import News from './NewsLetterComponent';
 import Contact from './ContactComponent';
 import Bulletin from "./BulletinComponent";
 import Banquet from "./BanquetComponent";
+import Makai from "./MakaiComponent";
+import Mauka from "./MaukaComponent";
 import ProgramSch from './ProgramScheduleComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
@@ -122,6 +124,20 @@ const BanquetNavigator = createStackNavigator(
                     onPress={() => navigation.toggleDrawer()}
                 />
             })
+        },
+        Makai: { screen: Makai },
+        Mauka: { screen: Mauka }
+    }, 
+    {
+        initialRouteName: 'Banquet',
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#72B4AC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
         },
     }
 );
@@ -242,7 +258,7 @@ const MainNavigator = createDrawerNavigator(
                         color={tintColor}
                     />
                 )
-            }
+            },
         },
         News: { 
             screen: NewsNavigator,
