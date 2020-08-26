@@ -8,6 +8,14 @@ import Banquet from "./BanquetComponent";
 import Makai from "./MakaiComponent";
 import Mauka from "./MaukaComponent";
 import ProgramSch from './ProgramScheduleComponent';
+import Sunday from "./SundayCardComponent";
+import Monday from "./MondayCardComponent";
+import Tuesday from "./TuesdayCardComponent";
+import Wednesday from "./WednesdayCardComponent";
+import Thursday from "./ThursdayCardComponent";
+import Friday from "./FridayCardComponent";
+import Saturday from "./SaturdayCardComponent";
+
 import { View, Platform, StyleSheet, Text, ScrollView, Image  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon, Avatar, withTheme } from 'react-native-elements';
@@ -78,6 +86,25 @@ const ProgramSchNavigator = createStackNavigator(
                     onPress={() => navigation.toggleDrawer()}
                 />
             })
+        },
+        Sunday: { screen: Sunday },
+        Monday: { screen: Monday },
+        Tuesday: { screen: Tuesday },
+        Wednesday: { screen: Wednesday },
+        Thursday: { screen: Thursday },
+        Friday: { screen: Friday },
+        Saturday: { screen: Saturday }
+    }, 
+    {
+        initialRouteName: 'ProgramSch',
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#72B4AC'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
         },
     }
 );

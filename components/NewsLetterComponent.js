@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, ScrollView, Linking } from "react-native";
 import { Text, Tile } from "react-native-elements";
+import * as Animatable from 'react-native-animatable';
 
 class News extends Component {
   static navigationOptions = {
@@ -10,6 +11,8 @@ class News extends Component {
   render() {
     return (
       <ScrollView>
+                <Animatable.View animation="fadeInRightBig" duration={1000}>
+
         <Text h3>Villages of Kapolei News</Text>
 
         <View style={{ alignItems: "center" }}>
@@ -55,6 +58,7 @@ class News extends Component {
             }
           />
         </View>
+        </Animatable.View>
       </ScrollView>
     );
   }

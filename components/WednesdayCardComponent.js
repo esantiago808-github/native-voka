@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 class Wednesday extends Component {
 
     static navigationOptions = {
-        title: 'Contact Us'
+        title: 'Wednesday - Activity Schedule'
     }
 
     render(){

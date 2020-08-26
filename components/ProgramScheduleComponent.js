@@ -9,35 +9,35 @@ import Wednesday from "./WednesdayCardComponent";
 import Thursday from "./ThursdayCardComponent";
 import Friday from "./FridayCardComponent";
 import Saturday from "./SaturdayCardComponent";
+import * as Animatable from "react-native-animatable";
 
 function Weekday(props) {
-    return (
-        <View>
-            <Sunday />
-            <Monday />
-            <Tuesday />
-            <Wednesday />
-            <Thursday />
-            <Friday />
-            <Saturday />
-        </View>
-    );
+  return (
+    <View>
+      <Sunday />
+      <Monday />
+      <Tuesday />
+      <Wednesday />
+      <Thursday />
+      <Friday />
+      <Saturday />
+    </View>
+  );
 }
 
 class ProgramSch extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          sunday: Sunday,
-          monday: Monday,
-          tuesday: Tuesday,
-          wednesday: Wednesday,
-          thursday: Thursday,
-          friday: Friday,
-          saturday: Saturday
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      sunday: Sunday,
+      monday: Monday,
+      tuesday: Tuesday,
+      wednesday: Wednesday,
+      thursday: Thursday,
+      friday: Friday,
+      saturday: Saturday,
+    };
+  }
 
   static navigationOptions = {
     title: "Activities Schedule",
@@ -48,69 +48,73 @@ class ProgramSch extends Component {
 
     return (
       <ScrollView>
-        <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
-            <Text style={{backgroundColor: 'yellow', fontWeight: 'bold', textAlign: 'center', fontSize: 24, margin: 5 }}>
-                All activities are cancelled due to COVID-19 state guidelines
+        <Animatable.View animation="fadeInLeft" duration={3000}>
+          <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
+            <Text
+              style={{
+                backgroundColor: "yellow",
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: 24,
+                margin: 5,
+              }}
+            >
+              All activities are cancelled due to COVID-19 state guidelines
             </Text>
-        </View>
+          </View>
 
-        <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
+          <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/sunday.png")}
-                onPress={() => console.log("Sunday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/sunday.png")}
+              onPress={() => navigate("Sunday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/monday.png")}
-                onPress={() => console.log("Monday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/monday.png")}
+              onPress={() => navigate("Monday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/tuesday.png")}
-                onPress={() => console.log("Tuesday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/tuesday.png")}
+              onPress={() => navigate("Tuesday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/wednesday.png")}
-                onPress={() => console.log("Wednesday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/wednesday.png")}
+              onPress={() => navigate("Wednesday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/thursday.png")}
-                onPress={() => console.log("Thursday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/thursday.png")}
+              onPress={() => navigate("Thursday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/friday.png")}
-                onPress={() => console.log("Friday!")}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/friday.png")}
+              onPress={() => navigate("Friday")}
             />
             <Avatar
-                rounded
-                size="medium"
-                containerStyle={{margin:4}}
-                source={require("../shared/images/saturday.png")}
-                onPress={() => {this.state.saturday, console.log('Saturday!')}}
+              rounded
+              size="medium"
+              containerStyle={{ margin: 4 }}
+              source={require("../shared/images/saturday.png")}
+              onPress={() => navigate("Saturday")}
             />
-        </View>
-
-        <View>
-            <Weekday />
-        </View>
-            
-       
+          </View>
+        </Animatable.View>
       </ScrollView>
     );
   }
