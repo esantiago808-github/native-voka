@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { ScrollView, View } from "react-native";
-import { Text, Card, Avatar, Accessory } from "react-native-elements";
+import { ScrollView, View, FlatList } from "react-native";
+import { Text, Card, Avatar, ListItem } from "react-native-elements";
 import { createStackNavigator } from "react-navigation";
+import * as Animatable from "react-native-animatable";
+
 import Sunday from "./SundayCardComponent";
 import Monday from "./MondayCardComponent";
 import Tuesday from "./TuesdayCardComponent";
@@ -9,7 +11,7 @@ import Wednesday from "./WednesdayCardComponent";
 import Thursday from "./ThursdayCardComponent";
 import Friday from "./FridayCardComponent";
 import Saturday from "./SaturdayCardComponent";
-import * as Animatable from "react-native-animatable";
+import { PROGRAMS } from "../shared/programs";
 
 function Weekday(props) {
   return (
@@ -36,6 +38,7 @@ class ProgramSch extends Component {
       thursday: Thursday,
       friday: Friday,
       saturday: Saturday,
+      programs: PROGRAMS,
     };
   }
 
@@ -45,6 +48,47 @@ class ProgramSch extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
+
+    const renderPrograms = ({ item }) => {
+      return (
+        <View>
+          <Card
+            key={item.id}
+            title={item.programname}
+            image={require("../shared/images/yoga.jpg")}
+            wrapperStyle={{ margin: 20 }}
+          >
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  Days: 
+                </Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.days}
+                </Text>
+              </View>
+            </View>
+            <Text style={{ fontSize: 18, marginBottom: 5 }}>
+              Time: {item.time}
+            </Text>
+            <Text style={{ fontSize: 18, marginBottom: 5 }}>
+              place: {item.place}
+            </Text>
+            <Text style={{ fontSize: 18, marginBottom: 5 }}>
+              Age: {item.age}
+            </Text>
+            <Text style={{ fontSize: 18, marginBottom: 5 }}>
+              Fee: {item.fee}
+            </Text>
+            <Text style={{ fontSize: 18 }}>
+              Description: {item.description}
+            </Text>
+          </Card>
+        </View>
+      );
+    };
 
     return (
       <ScrollView>
@@ -114,6 +158,11 @@ class ProgramSch extends Component {
               onPress={() => navigate("Saturday")}
             />
           </View>
+          <FlatList
+            data={this.state.programs}
+            renderItem={renderPrograms}
+            keyExtractor={(item) => item.id.toString()}
+          />
         </Animatable.View>
       </ScrollView>
     );
