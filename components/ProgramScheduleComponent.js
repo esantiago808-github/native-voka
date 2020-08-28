@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, View, FlatList } from "react-native";
-import { Text, Card, Avatar, ListItem } from "react-native-elements";
+import { Text, Card, Avatar, Image } from "react-native-elements";
 import { createStackNavigator } from "react-navigation";
 import * as Animatable from "react-native-animatable";
 
@@ -55,14 +55,12 @@ class ProgramSch extends Component {
           <Card
             key={item.id}
             title={item.programname}
-            image={require("../shared/images/yoga.jpg")}
+            image={{ uri: item.image }}
             wrapperStyle={{ margin: 20 }}
           >
             <View style={{ flex: 3, flexDirection: "row" }}>
               <View style={{ flex: 1, flexDirection: "column" }}>
-                <Text style={{ fontSize: 18, marginBottom: 5 }}>
-                  Days: 
-                </Text>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Days:</Text>
               </View>
               <View style={{ flex: 2, flexDirection: "column" }}>
                 <Text style={{ fontSize: 18, marginBottom: 5 }}>
@@ -70,21 +68,61 @@ class ProgramSch extends Component {
                 </Text>
               </View>
             </View>
-            <Text style={{ fontSize: 18, marginBottom: 5 }}>
-              Time: {item.time}
-            </Text>
-            <Text style={{ fontSize: 18, marginBottom: 5 }}>
-              place: {item.place}
-            </Text>
-            <Text style={{ fontSize: 18, marginBottom: 5 }}>
-              Age: {item.age}
-            </Text>
-            <Text style={{ fontSize: 18, marginBottom: 5 }}>
-              Fee: {item.fee}
-            </Text>
-            <Text style={{ fontSize: 18 }}>
-              Description: {item.description}
-            </Text>
+
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Time:</Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.time}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Place:</Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.place}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Age:</Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.age}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Fee:</Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.fee}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{ flex: 3, flexDirection: "row" }}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>Details:</Text>
+              </View>
+              <View style={{ flex: 2, flexDirection: "column" }}>
+                <Text style={{ fontSize: 18, marginBottom: 5 }}>
+                  {item.description}
+                </Text>
+              </View>
+            </View>
           </Card>
         </View>
       );
